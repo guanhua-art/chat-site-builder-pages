@@ -5,19 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>苏州文旅局</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('main section');
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        window.onload = function() {
+            showSection('home'); // 默认显示首页
+        };
+    </script>
 </head>
 <body class="bg-gray-100 font-sans">
     <header class="bg-blue-800 text-white p-6">
-        <h1 class="text-4xl font-bold text-center">欢迎来到苏州文旅局</h1>
+        <h1 class="text-4xl font-bold text-center text-red-600">欢迎来到苏州文旅局</h1>
+        <nav class="mt-4">
+            <ul class="flex justify-center space-x-6 text-red-600">
+                <li><a href="javascript:void(0);" onclick="showSection('home')" class="hover:text-gray-300">首页</a></li>
+                <li><a href="javascript:void(0);" onclick="showSection('introduction')" class="hover:text-gray-300">关于我们</a></li>
+                <li><a href="javascript:void(0);" onclick="showSection('attractions')" class="hover:text-gray-300">推荐景点</a></li>
+                <li><a href="javascript:void(0);" onclick="showSection('events')" class="hover:text-gray-300">活动信息</a></li>
+                <li><a href="javascript:void(0);" onclick="showSection('contact')" class="hover:text-gray-300">联系我们</a></li>
+            </ul>
+        </nav>
     </header>
     
     <main class="container mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">
-        <section id="introduction" class="mb-10">
+        <section id="home" class="mb-10">
+            <h2 class="text-3xl font-semibold mb-4">首页</h2>
+            <p>欢迎来到苏州文旅局网站！在这里，您可以找到关于苏州文化和旅游的最新信息。</p>
+        </section>
+
+        <section id="introduction" class="mb-10" style="display: none;">
             <h2 class="text-3xl font-semibold mb-4">关于我们</h2>
             <p>苏州文旅局致力于推动苏州文化和旅游的发展，为游客提供丰富的文化体验和旅游服务。</p>
         </section>
 
-        <section id="attractions" class="mb-10">
+        <section id="attractions" class="mb-10" style="display: none;">
             <h2 class="text-3xl font-semibold mb-4">推荐景点</h2>
             <ul class="list-disc list-inside">
                 <li class="mb-2">拙政园</li>
@@ -28,7 +58,17 @@
             </ul>
         </section>
 
-        <section id="contact">
+        <section id="events" class="mb-10" style="display: none;">
+            <h2 class="text-3xl font-semibold mb-4">活动信息</h2>
+            <p>我们定期举办各类文化和旅游活动，欢迎参与！</p>
+            <ul class="list-disc list-inside">
+                <li class="mb-2">苏州园林文化节 - 每年4月</li>
+                <li class="mb-2">苏州美食节 - 每年8月</li>
+                <li class="mb-2">苏州传统手工艺展 - 每年12月</li>
+            </ul>
+        </section>
+
+        <section id="contact" style="display: none;">
             <h2 class="text-3xl font-semibold mb-4">联系我们</h2>
             <p>电话: 123-456-7890</p>
             <p>邮箱: info@suzhou.gov.cn</p>
